@@ -184,3 +184,184 @@ for i in range(len(numbers)):
 
                       time = O(n**2)
 
+
+
+----------
+
+
+### O(log n)
+
+# Binary search  
+
+- Examle 
+number_list = [4,9,15,21,34,57,68,91]        # search for 68
+
+we can use 
+
+``` python 
+for i in number_list:
+    if number_list[i] == 68:
+        print(i)
+
+"""it is a long and time consuming if the arr is too long."""
+```
+
+- sowe use Binary search.
+
+1. split the arr in half and discard the left elements i.e. so numbers from 4-21 will be discarded.
+    first Iteration          remaining --> [34,57,68,91]   Remaining elements after Iteration 1 = n/2
+
+2. now again the same process and this time from 34-57
+    second iteraton             remaining --> [68,91]      Remaining elements after Iteration 2 = (n/2)/2 = n/2**2
+
+3. now in this Iteration we will find 68 which was the target.
+                                answer --> [68]              Remaining elements after Iteration 3 = (n/2**2)/2 = n/2**3
+
+- so in just 3 Iterations we can reach to the answer.
+
+so the general formula is 
+
+                       Remaining elements after Iteration k = n/2**k
+
+                        after k Iterations, the remaning arr size is:
+
+                            remaining size = n/2**k
+        
+                        we stop only when one element remains.
+        
+                                1 = n/2**k
+
+                                2**k = n
+
+                        applying log(base 2) on both sides
+
+                                k log2 (2) = log2 n  
+
+                                k = O(log n)
+
+ - so as in our example we have 8 elements then,
+
+                                k = log2 (8)
+                                k = log2 (2**3)
+                                k = 3 log2 (2)
+                                k = 3 (Iterations)
+
+
+
+----------
+
+
+### O(n log n)
+
+O(n log n) happens when:
+
+- the problem is divided again and again.
+- there are log n levels.
+- at each level, we process all n elements.
+
+----
+
+# Formula
+
+work per levele x number of levels.
+
+    n x log n = O(n log n)
+
+Example:
+Merge Sort
+
+l = [8,3,5,1,9,2,4,7]
+
+step 1: Divide
+
+we split agian and again.
+
+8 elements 
+
+4 + 4 elements                  (level 1)    8 elements are processed.
+
+2 + 2 + 2 + 2                   (level 2)    8 elements are processed.
+
+1 + 1 + 1 + 1 + 1 + 1 + 1 + 1   (level 3)    8 elements are processed.
+
+
+
+
+----------
+
+### O(2ⁿ)
+
+O(2ⁿ) is called exponential time.
+
+It usually happens when every element has 2 choices.
+
+Examples:
+
+- include / don't include
+- take / skip
+- yes / no
+
+If there are n elements:
+
+2 × 2 × 2 ... n times = 2ⁿ
+
+Example:
+
+arr = [A, B, C]
+
+Each element has 2 choices:
+
+take or skip
+
+Total possibilities:
+
+2³ = 8
+
+Subsets:
+
+[]
+[A]
+[B]
+[C]
+[A, B]
+[A, C]
+[B, C]
+[A, B, C]
+
+So generating all subsets has time complexity:
+
+O(2ⁿ)
+
+
+
+
+----------
+
+### O(n!) - Factorial Time
+
+O(n!) happens when we try every possible order/arrangement.
+
+Example: permutations
+
+arr = [A, B, C]
+
+Possible arrangements:
+
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+
+Total:
+
+3! = 3 × 2 × 1 = 6
+
+So generating all permutations takes:
+
+O(n!)
+
+Memory line:
+
+If the algorithm tries every possible ordering, think O(n!).
