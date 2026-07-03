@@ -73,14 +73,40 @@ def greter_than_x(number,x):
 
 # problem_8__list of even numbers
 
-def list_of_even_numbers(list):
+def list_of_even_numbers(arr):
 
     even=[]
-    for value in list:
+
+    for value in arr:
         if value%2==0:
             even.append(value)
-            count_even+=1
     return even
+
+
+# problem_9__reverse array making a new arr
+
+def reverse_array(arr):
+    reversed_array=[]
+    for i in range(len(arr)-1,-1,-1):
+        reversed_array.append(arr[i])
+    return reversed_array
+
+
+# problem_10__reverse in-place
+
+def reverse_in_place(arr):
+    left_index=0
+    right_index=len(arr)-1
+
+    for i in range(len(arr)):
+        saved_left_index_value=arr[left_index]
+        arr[left_index]=arr[right_index]
+        arr[right_index]=saved_left_index_value
+        left_index+=1
+        right_index-=1
+        if left_index > right_index:
+            break
+    return arr
 
 print(find_maximum([32,53,78,10,17,33,94,95,55,20,99]))
 print()
@@ -102,3 +128,6 @@ print(list_of_even_numbers([655, 115, 26, 760, 282, 251, 229, 143,755, 105,
                     693, 759, 914, 559, 90, 605,433, 33, 31, 96, 224, 
                     239, 518, 617, 28]))
 print()
+print(reverse_array([117,4,39,102,189,316,52,808]))
+print()
+print(reverse_in_place([17, 44, 93, 102, 149, 316, 521, 888,66]))
