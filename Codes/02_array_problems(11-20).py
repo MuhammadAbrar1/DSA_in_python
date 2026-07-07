@@ -20,5 +20,97 @@ def replace_even_numbers_with_0(arr):
 # Space complexity = O(1)
 
 
+
+# problem_13__Replace even number with 0 in-place
+
+def replace_odd_numbers_with_minus1(arr):
+    for i in range(len(arr)):
+        if arr[i]%2!=0:
+            arr[i]=-1
+    return arr
+# time complexity = O(n)
+# Space complexity = O(1)
+
+
+
+# problem_14__count positive numbers
+
+def count_positive_numbers(arr):
+    positive_numbers=0
+    for i in range(len(arr)):
+        if arr[i]>0:
+            positive_numbers+=1
+    return positive_numbers
+# time complexity = O(1) + O(n) = O(n)
+# Space complexity = O(1)
+
+
+
+# problem_15__count occurences of target
+
+def count_occurences_of_target(arr,t1):
+    occurences_of_target=0
+    for i in range(len(arr)):
+        if arr[i]==t1:
+            occurences_of_target+=1
+    return occurences_of_target
+
+# time complexity = O(1) + O(n) = O(n)
+# Space complexity = O(1)
+
+
+
+# problem_16__count occurences of target
+
+def numbers_greater_than_x(arr,y):
+    greater_than_x=[]
+    for i in range(len(arr)):
+        if arr[i]>y:
+            greater_than_x.append(arr[i])
+    return greater_than_x
+
+# time complexity = O(1) + O(n) = O(n)
+# Space complexity = O(n)
+
+
+
+
+def second_largest_number(arr):
+
+    largest=arr[1]
+    second_largest=arr[0]
+
+    for i in range(len(arr)):
+        if arr[i]>largest:
+            second_largest=largest
+            largest=arr[i]
+        elif arr[i] >second_largest:
+            second_largest=arr[i]
+    return second_largest
+
+
+
+
+
+
+
+
 print(negative_values_in_place([14, 83, -192, 337, -456, 523, 611, -784, -829, 905]))
+print()
 print(replace_even_numbers_with_0([14, 83, 12, 23, 632, 522, 613, 784, 829, 905]))
+print()
+print(replace_odd_numbers_with_minus1([14, 83, 192, 337, 456, 523, 611, 784, 829, 905]))
+print()
+print(count_positive_numbers([14, 83, -192, 337, -456, 523, 611, -784, -829, 905]))
+print()
+print(count_occurences_of_target([400, 400, 300, 200, 100, 44, 500, 200, 500, 300, 
+                                  600, 400, 200, 100, 900, 900, 200, 400, 700, 100, 
+                                  22, 300, 700, 77, 1000, 600, 500, 300, 400, 11, 
+                                  55, 800, 600, 33, 200, 88, 66, 100, 500, 800, 
+                                  100, 700, 100, 200, 200, 300, 300, 100, 100, 1000],200))
+print()
+print(numbers_greater_than_x([14, 83, 12, 23, 632, 522, 613, 784, 829, 905],200))
+print()
+print(second_largest_number([-84, -13, -67, -42, -91, -5, -28, 
+                             -73, -59, -16, -99, -34, -51, -8, 
+                             -62, -47, -22, -89, -3, -71]))
