@@ -60,7 +60,7 @@ def count_occurences_of_target(arr,t1):
 
 
 
-# problem_16__count occurences of target
+# problem_16__numbers greater than x
 
 def numbers_greater_than_x(arr,y):
     greater_than_x=[]
@@ -73,26 +73,47 @@ def numbers_greater_than_x(arr,y):
 # Space complexity = O(n)
 
 
-
+# problem_17__Second largest number
 
 def second_largest_number(arr):
+    largest=arr[0]
+    second_largest = None
 
-    largest=arr[1]
-    second_largest=arr[0]
-
-    for i in range(len(arr)):
+    for i in range(1,len(arr)):
         if arr[i]>largest:
             second_largest=largest
             largest=arr[i]
-        elif arr[i] >second_largest:
+        elif arr[i]<largest and (second_largest is None or arr[i]>second_largest):
             second_largest=arr[i]
+        else:
+            continue
     return second_largest
 
+# print(second_largest_number(2,3,4,8,3,7))
 
 
+# problem_18__check ascending sorting
 
+def check_asscending_sorting(arr):
+    previous_value=arr[0]
+    for i in range(1,len(arr)):
+        if arr[i] >previous_value:
+            previous_value=arr[i]
+        elif arr[i]<previous_value:
+            return False
+    return True
 
+# problem_19__Move Zeros to the end
 
+def move_zeros_to_end(arr):
+    next_position=0
+    for i in range(len(arr)):
+        if arr[i]!=0:
+            arr[next_position]=arr[i]
+            next_position+=1
+    for i in range(next_position,len(arr)):
+        arr[i]=0
+    return arr
 
 
 print(negative_values_in_place([14, 83, -192, 337, -456, 523, 611, -784, -829, 905]))
@@ -111,6 +132,6 @@ print(count_occurences_of_target([400, 400, 300, 200, 100, 44, 500, 200, 500, 30
 print()
 print(numbers_greater_than_x([14, 83, 12, 23, 632, 522, 613, 784, 829, 905],200))
 print()
-print(second_largest_number([-84, -13, -67, -42, -91, -5, -28, 
-                             -73, -59, -16, -99, -34, -51, -8, 
-                             -62, -47, -22, -89, -3, -71]))
+print(second_largest_number([10,10,5]))
+print()
+print(check_asscending_sorting([14, 83, 12, 23, 632, 522, 613, 784, 829, 905]))
