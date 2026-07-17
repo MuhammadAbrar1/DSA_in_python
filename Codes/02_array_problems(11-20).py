@@ -105,17 +105,31 @@ def check_asscending_sorting(arr):
 
 # problem_19__Move Zeros to the end
 
-def move_zeros_to_end(arr):
+    def move_zeros_to_end(arr):
+        next_position=0
+        for i in range(len(arr)):
+            if arr[i]!=0:
+                arr[next_position]=arr[i]
+                next_position+=1
+        for i in range(next_position,len(arr)):
+            arr[i]=0
+        return arr
+
+
+
+
+# problem_20__remove targeted value
+
+def remove_targeted_value(arr,target):
     next_position=0
     for i in range(len(arr)):
-        if arr[i]!=0:
+        if arr[i]!=target:
             arr[next_position]=arr[i]
             next_position+=1
-    for i in range(next_position,len(arr)):
-        arr[i]=0
-    return arr
+    return arr[:next_position]
 
 
+    
 print(negative_values_in_place([14, 83, -192, 337, -456, 523, 611, -784, -829, 905]))
 print()
 print(replace_even_numbers_with_0([14, 83, 12, 23, 632, 522, 613, 784, 829, 905]))
@@ -135,3 +149,9 @@ print()
 print(second_largest_number([10,10,5]))
 print()
 print(check_asscending_sorting([14, 83, 12, 23, 632, 522, 613, 784, 829, 905]))
+print()
+print(remove_targeted_value([400, 400, 300, 200, 100, 44, 500, 200, 500, 300, 
+                                  600, 400, 200, 100, 900, 900, 200, 400, 700, 100, 
+                                  22, 300, 700, 77, 1000, 600, 500, 300, 400, 11, 
+                                  55, 800, 600, 33, 200, 88, 66, 100, 500, 800, 
+                                  100, 700, 100, 200, 200, 300, 300, 100, 100, 1000],200))
