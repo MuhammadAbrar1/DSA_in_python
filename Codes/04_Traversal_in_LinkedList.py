@@ -49,7 +49,7 @@ summation=0
 while current:
     print(current.data)
     count+=1
-    summation=summation+current.data
+    summation=summation+current.data    
     current=current.next
 print(count)
 print(summation)
