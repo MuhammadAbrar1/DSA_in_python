@@ -1,3 +1,6 @@
+# Insertion at the beginning.
+
+
 class Node:
     def __init__(self,data=None, next=None):
         self.data=data
@@ -39,7 +42,7 @@ Current=head
 while Current:
     print(Current.data)
     Current=Current.next
-print()
+print() 
 
 
 # Drill 2
@@ -62,3 +65,38 @@ Current=head
 while Current:
     print(Current.data)
     Current=Current.next
+print()
+
+
+
+
+# Insertion at the End.
+
+class Node:
+    def __init__(self,data=None,next=None):
+        self.data=data
+        self.next=next
+def insert_at_the_end(head,value):
+    new_node=Node(value)
+    if head==None:
+        head=new_node
+        return head
+    current=head
+    while current.next:
+        current=current.next
+    current.next=new_node
+    return head
+head=None
+head=insert_at_the_end(head,2)
+head=insert_at_the_end(head,4)
+head=insert_at_the_end(head,6)
+head=insert_at_the_end(head,8)
+head=insert_at_the_end(head,10)
+head=insert_at_the_end(head,12)
+head=insert_at_the_end(head,14)
+head=insert_at_the_end(head,16)
+
+current=head
+while current:
+    print(current.data)
+    current=current.next
