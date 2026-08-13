@@ -100,3 +100,36 @@ current=head
 while current:
     print(current.data)
     current=current.next
+
+
+
+class Node:
+    def __init__(self, data=None,next=None):
+        self.data=data
+        self.next=next
+
+def insert_at_the_beginning(head,value):
+    new_node1=Node(value)
+    new_node1.next=head
+    head = new_node1
+    return head
+def insert_at_the_end(head,value):
+    new_node=Node(value)
+    if head is None:
+        head = new_node
+        return head
+    current = head
+    while current.next:
+        current=current.next
+    current.next=new_node
+    return head
+
+head = None
+head = insert_at_the_end(head,20)
+head = insert_at_the_beginning(head,10)
+head = insert_at_the_end(head,30)
+head = insert_at_the_beginning(head,5)
+current=head
+while current:
+    print(current.data)
+    current=current.next
